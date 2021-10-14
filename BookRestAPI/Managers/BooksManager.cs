@@ -30,5 +30,17 @@ namespace BookRestAPI.Managers
                 _books.Add(book);
             }
         }
+
+        public void UpdateBook(Book book, string ISBN13)
+        {
+            var index = _books.FindIndex(x => x.ISBN13 == ISBN13);
+            _books[index] = book;
+        }
+
+        public void DeleteBook(string ISBN13)
+        {
+            var index = _books.FindIndex(x => x.ISBN13 == ISBN13);
+            _books.RemoveAt(index);
+        }
     }
 }

@@ -38,15 +38,17 @@ namespace BookRestAPI.Controllers
         }
 
         // PUT api/<BooksController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("{isbn}")]
+        public void Put(string isbn, [FromBody] Book book)
         {
+            _manager.UpdateBook(book, isbn);
         }
 
         // DELETE api/<BooksController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{isbn}")]
+        public void Delete(string isbn)
         {
+            _manager.DeleteBook(isbn);
         }
     }
 }
