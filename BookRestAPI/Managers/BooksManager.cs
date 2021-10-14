@@ -22,5 +22,13 @@ namespace BookRestAPI.Managers
         {
             return _books.Find(book => book.ISBN13.Contains(isbn));
         }
+
+        public void AddBook(Book book)
+        {
+            if(!_books.Exists(x => x.ISBN13 == book.ISBN13))
+            {
+                _books.Add(book);
+            }
+        }
     }
 }

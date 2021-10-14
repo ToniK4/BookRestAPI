@@ -32,8 +32,9 @@ namespace BookRestAPI.Controllers
 
         // POST api/<BooksController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Book book)
         {
+            _manager.AddBook(book);
         }
 
         // PUT api/<BooksController>/5
